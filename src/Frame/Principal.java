@@ -27,7 +27,7 @@ public class Principal extends javax.swing.JFrame {
     
     public Principal() {
         initComponents();
-        this.setTitle("Memory");
+        this.setTitle("Encuentra el Clon");
         this.setLocationRelativeTo(this);
         u.imgStart();
     }

@@ -23,7 +23,7 @@ public class Utilities {
     private List<Match> match = new ArrayList<>();
     private List<Match> ok = new ArrayList<>();
 
-    //METODO DONDE SE CARGAR NUMEROS RAMDON EN FILA
+    // METODO DONDE SE CARGAR NUMEROS RAMDON EN FILA
     public static List<Integer> rowsTable() {
         List<Integer> list = new ArrayList<>();
         Random r = new Random();
@@ -40,7 +40,7 @@ public class Utilities {
         return list;
     }
 
-    //METODO PARA INGRESAR LAS DOS FILAS
+    // METODO PARA INGRESAR LAS DOS FILAS
     public static List<Integer> rowsTableAll() {
         List<Integer> all = new ArrayList<>();
         all.addAll(rowsTable());
@@ -48,7 +48,7 @@ public class Utilities {
         return all;
     }
 
-    //METODO PARA PINTAR LAS IMAGENES
+    // METODO PARA PINTAR LAS IMAGENES
     public void paintImage(JButton btn, int value) {
         try {
             btn.setIcon(new ImageIcon(getClass().getResource("/Images/0" + value + ".png")));
@@ -58,8 +58,8 @@ public class Utilities {
             ex.printStackTrace();
         }
     }
-    
-    //METODO QUE INICIALIZA LAS IMAGENES EN ?
+
+    // METODO QUE INICIALIZA LAS IMAGENES EN ?
     public void imgStart() {
         paintImage(Principal.btn01, 9);
         paintImage(Principal.btn02, 9);
@@ -70,21 +70,21 @@ public class Utilities {
         paintImage(Principal.btn07, 9);
         paintImage(Principal.btn08, 9);
     }
-        
-    //METODO PARA CUANDO LOS DOS VALORES SEAN IGUALES 
+
+    // METODO PARA CUANDO LOS DOS VALORES SEAN IGUALES
     public void paintMatch() {
         System.out.println(getMatch().size());
         if (getMatch().size() == 1) {
             paintImage(getMatch().get(0).getBtn(), getMatch().get(0).getValueMatch());
-        } else if(getMatch().size() == 2) {
+        } else if (getMatch().size() == 2) {
             paintImage(getMatch().get(1).getBtn(), getMatch().get(1).getValueMatch());
         }
     }
-    
-    //METODO DONDE LAS IMAGENES YA HICIERON MATCH
+
+    // METODO DONDE LAS IMAGENES YA HICIERON MATCH
     public void imgStartMatch() {
         if (ok.size() == 8) {
-            JOptionPane.showMessageDialog(null, "Win Player");
+            JOptionPane.showMessageDialog(null, "Ganaste !!!!");
 
             for (int i = 0; i < ok.size(); i++) {
                 paintImage(ok.get(i).getBtn(), ok.get(i).getValueMatch());
@@ -100,13 +100,13 @@ public class Utilities {
         }
     }
 
-    //METODO QUE CONTROLA LA EJECUCION
+    // METODO QUE CONTROLA LA EJECUCION
     public void reset() {
         imgStart();
         imgStartMatch();
     }
 
-    //METODO DE MATCH
+    // METODO DE MATCH
     public void match() {
         if (getMatch().size() == 2) {
             if (getMatch().get(0).getNumberBtn() != 0 && getMatch().get(1).getNumberBtn() != 0) {
@@ -116,7 +116,7 @@ public class Utilities {
                     ok.add(getMatch().get(1));
                     getMatch().clear();
                     reset();
-                } else {                    
+                } else {
                     Runnable mx = new Runnable() {
                         @Override
                         public void run() {
